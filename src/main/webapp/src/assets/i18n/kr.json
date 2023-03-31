@@ -16,8 +16,8 @@
     "Phone": "Telefòn",
     "Locale": "Lang chwazi",
     "Username": "Non itilizatè",
-    "First Name": "Nom",
-    "Last Name": "Siyati",
+    "FirstName": "Nom",
+    "LastName": "Siyati",
     "Place of work": "Lye travay",
     "Manager": "Responsab(yo)",
     "Topic": "Tematik",
@@ -69,6 +69,8 @@
     "Save": "Anrejistre",
     "Back": "Retounen",
     "Number of attendees per network": "Kantite patisipan pa rezo",
+    "accommodation": "Lojman",
+    "transportation": "Transpò",
 
 
 

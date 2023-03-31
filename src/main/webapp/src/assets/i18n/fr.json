@@ -16,8 +16,9 @@
     "Phone": "Téléphone",
     "Locale": "Langue préférée",
     "Username": "Nom d'utilisateur",
-    "First Name": "Prénom",
-    "Last Name": "Nom",
+    "FirstName": "Prénom",
+    "LastName": "Nom",
+    "NIF": "NIF/NIU",
     "Place of work": "Lieu de travail",
     "Manager": "Responsable(s)",
     "Topic": "Thématique",
@@ -69,6 +70,8 @@
     "Save": "Sauvegarder",
     "Back": "Retourner",
     "Number of attendees per network": "Nombre de participants par réseau",
+    "accommodation": "Logement",
+    "transportation": "Transport",
 
 
 
