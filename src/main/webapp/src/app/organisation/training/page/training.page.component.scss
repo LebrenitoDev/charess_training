@@ -1,6 +1,9 @@
-table{
+table {
   width: 100%;
+  overflow-y: visible;
+  // max-height: 30vh;
 }
+
 .mat-column-status {
   word-wrap: break-word !important;
   white-space: unset !important;

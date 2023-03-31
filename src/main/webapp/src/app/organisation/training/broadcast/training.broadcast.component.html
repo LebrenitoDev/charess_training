@@ -21,6 +21,7 @@
                                         <mat-autocomplete autoActiveFirstOption #autoTopic="matAutocomplete" [displayWith]="display">
                                             <mat-option *ngFor="let t of topics | async" [value]="t">{{t.fullname}}</mat-option>
                                         </mat-autocomplete>
+                                        
                                         <mat-error *ngIf="topic.hasError('required')">{{'This field is required' | translate}}</mat-error>
                                     </mat-form-field>
                                 </div>

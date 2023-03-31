@@ -71,7 +71,7 @@
                                             <div class="col-4">
                                                 <mat-form-field class="example-full-width mb-4">
                                                     <mat-label>{{"Email"| translate}}<span *ngIf="isEmailDuplicated[i]" class="error">{{msg | translate}}</span></mat-label>
-                                                    <input matInput formControlName="email" [showMaskTyped]="true" required (blur)="check(i)"/>
+                                                    <input matInput formControlName="email" [showMaskTyped]="true" (blur)="check(i)"/>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-4">

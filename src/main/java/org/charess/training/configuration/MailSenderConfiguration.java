@@ -13,7 +13,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("file:/home/ubuntu/.charess.mail.properties")
+@PropertySource("file:/home/lebrenito/.charess.mail.properties")
 public class MailSenderConfiguration {
 
     private final Logger log = LoggerFactory.getLogger(MailSenderConfiguration.class);
