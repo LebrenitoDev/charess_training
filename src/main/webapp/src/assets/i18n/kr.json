@@ -16,8 +16,10 @@
     "Phone": "Telefòn",
     "Locale": "Lang chwazi",
     "Username": "Non itilizatè",
-    "FirstName": "Nom",
+    "FirstName": "Non",
     "LastName": "Siyati",
+    "NIF": "NIF/NIU",
+    "Email": "Imèl",
     "Place of work": "Lye travay",
     "Manager": "Responsab(yo)",
     "Topic": "Tematik",
@@ -71,6 +73,8 @@
     "Number of attendees per network": "Kantite patisipan pa rezo",
     "accommodation": "Lojman",
     "transportation": "Transpò",
+    "Institution": "Enstitisyon",
+
 
 
 

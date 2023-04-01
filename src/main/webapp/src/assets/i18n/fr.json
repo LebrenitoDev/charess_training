@@ -19,6 +19,7 @@
     "FirstName": "Prénom",
     "LastName": "Nom",
     "NIF": "NIF/NIU",
+    "Email": "Email",
     "Place of work": "Lieu de travail",
     "Manager": "Responsable(s)",
     "Topic": "Thématique",
@@ -72,6 +73,7 @@
     "Number of attendees per network": "Nombre de participants par réseau",
     "accommodation": "Logement",
     "transportation": "Transport",
+    "Institution": "Institution",
 
 
 

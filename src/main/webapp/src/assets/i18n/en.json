@@ -1,7 +1,6 @@
 {
     "Name": "Name",
     "Address": "Address",
-    "Manager": "Manager",
     "Parent": "Guardianship",
     "New Institution Partner": "New Institution/Partner",
     "Title": "Title",
@@ -18,6 +17,8 @@
     "Username": "Username",
     "First Name": "First Name",
     "Last Name": "Last Name",
+    "NIF": "NIF/NIU",
+    "Email": "Email",
     "Place of work": "Place of work",
     "Manager": "Manager(s)",
     "Topic": "Topic",
@@ -71,6 +72,8 @@
     "Number of attendees per network": "Number of attendees per network",
     "accommodation": "Accommodation",
     "transportation": "Transportation",
+    "Institution": "Institution",
+
 
 
 
