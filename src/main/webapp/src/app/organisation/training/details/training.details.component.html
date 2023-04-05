@@ -75,7 +75,7 @@
                                                 <mat-form-field class="example-full-width">
                                                     <mat-label>{{'Institution' | translate}}</mat-label>
                                                     <mat-select [compareWith]="compare" formControlName="partner">
-                                                        <mat-option *ngFor="let p of partnerArray" [value]="p">{{p.accronym}}</mat-option>
+                                                        <mat-option *ngFor="let p of partnerArray" [value]="p">{{p.fullname}}</mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
                                             </div>
