@@ -10,6 +10,7 @@ export class Participant {
     status: string;
     logistic: string;
     transport: string;
+    identifiertype: string;
 
     constructor(t) {
         {

@@ -27,7 +27,7 @@ public class ParticipantController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> save(@RequestBody PartnerTrainingParticipants partnerTrainingParticipants){
         try {
-            return participantService.declare(partnerTrainingParticipants)==null?new ResponseEntity<>("", HttpStatus.BAD_REQUEST):new ResponseEntity<>("", HttpStatus.OK);
+            return participantService.declare(partnerTrainingParticipants)==null? new ResponseEntity<>("", HttpStatus.BAD_REQUEST):new ResponseEntity<>("", HttpStatus.OK);
         } catch(Exception e){
             e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(), HttpStatus.EXPECTATION_FAILED);

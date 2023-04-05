@@ -3,17 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 //
 //
-export const environment = {
-    production: false,
-    api: 'http://100.21.60.231:8080/api',
-    auth: 'http://100.21.60.231:8080/api/authenticate',
-};
-
 // export const environment = {
 //     production: false,
-//     api: 'http://localhost:8080/api',
-//     auth: 'http://localhost:8080/api/authenticate',
+//     api: 'http://100.21.60.231:8080/api',
+//     auth: 'http://100.21.60.231:8080/api/authenticate',
 // };
+
+export const environment = {
+    production: false,
+    api: 'http://localhost:8080/api',
+    auth: 'http://localhost:8080/api/authenticate',
+};
 
 
 

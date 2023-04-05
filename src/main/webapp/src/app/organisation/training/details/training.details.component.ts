@@ -5,11 +5,8 @@ import {Training} from "../../../core/models/training/training";
 import {TrainingService} from "../training.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Person} from "../../../core/models/security/person";
-import {PartnerTrainingParticipants} from "../../../core/models/training/partner.training.participants";
 import {Participant} from "../../../core/models/training/participant";
 import {TrainingParticipants} from "../../../core/models/training/training.participants";
-import {Institution} from "../../../core/models/security/institution";
 import {InstitutionService} from "../../../configuration/institution/institution.service";
 
 
@@ -27,6 +24,7 @@ export class TrainingDetailsComponent implements OnInit {
     endDate: Date;
     partners = new FormControl();
     partnerArray = [];
+    mask = '';
 
     // loading = false;
 
@@ -35,8 +33,8 @@ export class TrainingDetailsComponent implements OnInit {
         const state = this.router.getCurrentNavigation().extras.state;
 
         this.training = state?state.training:JSON.parse(localStorage.getItem("training"));
-        this.startDate = new Date(this.training?.startDate);
-        this.endDate = new Date(this.training?.endDate);
+        this.startDate = new Date(this.training?.startDate + "GMT-0500");
+        this.endDate = new Date(this.training?.endDate + "GMT-0500");
 
         const trainingParticpants = new TrainingParticipants(
             {
@@ -63,6 +61,7 @@ export class TrainingDetailsComponent implements OnInit {
     }
 
     format(p: Participant): FormGroup {
+        console.log(p);
         return this.fb.group({
             id: [p?.id],
             partner: [p?.partner],
@@ -70,6 +69,7 @@ export class TrainingDetailsComponent implements OnInit {
             transport: [p.transport],
             person: this.fb.group({
                 id: [p?.person?.id],
+                identifierType: [p?.person?.identifierType,[Validators.required]],
                 identifier: [p?.person?.identifier, [Validators.required]],
                 firstName: [p?.person?.firstName, [Validators.required]],
                 lastName: [p?.person?.lastName, [Validators.required]],
@@ -78,6 +78,8 @@ export class TrainingDetailsComponent implements OnInit {
             })
         });
     }
+
+    
 
     private toast(color, text) {
         this.snack.open(text, '', {

@@ -2,6 +2,7 @@ import * as moment from 'moment';
 
 export class Person {
     id: number;
+    identifierType: string;
     identifier: string;
     firstName: string;
     lastName: string;
@@ -17,7 +18,7 @@ export class Person {
     constructor(person) {
         {
             this.id = person?.id;
-
+            this.identifierType = person?.identifierType;
             this.identifier =  person?.identifier;
             this.firstName = person?.firstName;
             this.lastName = person?.lastName;

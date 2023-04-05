@@ -80,6 +80,15 @@
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-1">
+                                                <mat-form-field class="example-full-width" formGroupName="person">
+                                                    <mat-label>{{'Identifier Type' | translate}}</mat-label>
+                                                    <mat-select formControlName="identifierType" required>
+                                                        <mat-option [value]="'nif'">Numéro d'identification fiscale</mat-option>
+                                                        <mat-option [value]="'ninu'">Numéro d'identification nationale unique</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-1">
                                                 <mat-form-field class="example-full-width mb-2" formGroupName="person">
                                                     <mat-label>{{"NIF" | translate}}</mat-label>
                                                     <input matInput mask="000-000-000-0" placeholder="000-000-000-0" formControlName="identifier" required (blur)="checkIdentifier(i)"/>
@@ -91,7 +100,7 @@
                                                     <input matInput matInput mask="0000-0000" placeholder="0000-0000" formControlName="phone" required/>
                                                 </mat-form-field>
                                             </div>
-                                            <div class="col-2">
+                                            <div class="col-1">
                                                 <mat-form-field class="example-full-width mb-3" formGroupName="person">
                                                     <mat-label>{{"Email"| translate}}</mat-label>
                                                     <input matInput formControlName="email" [showMaskTyped]="true" required (blur)="checkEmail(i)"/>
