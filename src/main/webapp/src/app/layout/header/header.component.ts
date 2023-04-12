@@ -53,7 +53,7 @@ export class HeaderComponent extends UnsubscribeOnDestroyAdapter implements OnIn
         this.config = this.configService.configData;
         this.usr = this.authService.currentUserValue;
         this.usrName = this.usr.person.fullname;
-        this.userImg = this.usr.img===undefined?"assets/images/user/admin.jpg":this.usr.img;
+        this.userImg = this.usr.img===undefined?"assets/images/user/admin.png":this.usr.img;
         this.profile = this.usr.profile.name;
         this.homePage = this.usr.profile.page;
 

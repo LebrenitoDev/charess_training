@@ -15,7 +15,7 @@ import { Role } from '../models/security/role';
 const users: User[] = [
   {
     id: 1,
-    img: 'assets/images/user/admin.jpg',
+    img: 'assets/images/user/admin.pg',
     username: 'admin@school.org',
     password: 'admin@123',
     firstName: 'Sarah',

@@ -82,7 +82,7 @@
                                             <div class="col-1">
                                                 <mat-form-field class="example-full-width" formGroupName="person">
                                                     <mat-label>{{'Identifier Type' | translate}}</mat-label>
-                                                    <mat-select formControlName="identifierType" required>
+                                                    <mat-select matTooltip = "Sample Tooltip" formControlName="identifierType" required>
                                                         <mat-option [value]="'nif'">Numéro d'identification fiscale</mat-option>
                                                         <mat-option [value]="'ninu'">Numéro d'identification nationale unique</mat-option>
                                                     </mat-select>
