@@ -62,6 +62,7 @@
                                             <button mat-raised-button color="primary" [type]="submit">{{"Save" | translate}}</button>
                                             <!--<button mat-raised-button color="primary" [type]="submit" [disabled]="unchanged">{{"Save" | translate}}</button>-->
                                             <button mat-raised-button color="warn" (click)="back()" tabindex="-1">{{"Cancel" | translate}}</button>
+                                            <input type="file" (change)="readExcel($event)">
                                         </div>
                                     </div>
                                 </div>

@@ -14,6 +14,7 @@ import {AccountService} from "../account.service";
 import {User} from "../../../core/models/security/user";
 import {AccountFormComponent} from "../form/account.form.component";
 import {Router} from "@angular/router";
+import { DeleteComponent } from '../../delete/delete.confirm';
 
 @Component({
     selector: 'app-page',
@@ -30,7 +31,8 @@ export class AccountPageComponent extends UnsubscribeOnDestroyAdapter implements
         'email',
         'locale',
         'status',
-        'institution'
+        'institution',
+        'Action'
     ];
     database: AccountService | null;
     datasource: Source | null;
@@ -116,6 +118,22 @@ export class AccountPageComponent extends UnsubscribeOnDestroyAdapter implements
             users.push(u);
         });
         this.change(users);
+    }
+
+    delete(row): void {
+        const dialogRef = this.dialog.open(DeleteComponent, {});
+        this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
+            if (result === 1) {
+                this.database.delete(row.id).subscribe(
+                    res => this.success(),
+                    (err: HttpErrorResponse)=>this.error(err)
+                );
+                this.set();
+            }
+        });
+    }
+    set() {
+        throw new Error('Method not implemented.');
     }
 
     change(array){

@@ -86,6 +86,11 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/delete/{id}", method= RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Integer id) {
+        userService.deleteUser(id);
+    }
+
     @RequestMapping(value="/password/reset", method = RequestMethod.POST)
     public ResponseEntity<?> resetPassword(@RequestBody User user){
         try {

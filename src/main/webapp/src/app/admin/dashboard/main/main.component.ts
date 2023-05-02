@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AutoLogOutService } from '../../../core/service/auto-log-out.service';
+
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -44,11 +46,14 @@ export class MainComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public areaChartOptions: Partial<areaChartOptions>;
   public barChartOptions: Partial<barChartOptions>;
-  constructor() {}
+  constructor(private service: AutoLogOutService) {}
 
   ngOnInit() {
     this.chart1();
     this.chart2();
+
+
+    
   }
   private chart1() {
     this.areaChartOptions = {
@@ -212,4 +217,5 @@ export class MainComponent implements OnInit {
       },
     };
   }
+
 }

@@ -66,6 +66,7 @@
                                                         </button>
                                                     </div>
                                                 </li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -118,8 +119,20 @@
                                         <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Locale'|translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">{{row.locale=='en'?'Anglais':(row.locale=='fr'?'Fran&ccedil;ais':'Créole Haïtien')}}</mat-cell>
                                     </ng-container>
+                                    
                                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                                     <mat-row *matRowDef="let row; columns: displayedColumns;" [style.cursor]="'pointer'" matRipple> </mat-row>
+
+                                    <ng-container matColumnDef="Action">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Actions'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                                            <span>
+                                                <button mat-icon-button color="accent" class="btn-tbl-delete" (click)="delete(row)">
+                                                    <mat-icon aria-label="Delete" class="col-white">delete</mat-icon>
+                                                </button>
+                                            </span>
+                                        </mat-cell>
+                                    </ng-container>
                                 </mat-table>
                                 <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                             </div>

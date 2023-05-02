@@ -62,6 +62,10 @@ export class AccountService extends UnsubscribeOnDestroyAdapter {
         return this.http.post(`${this.api}/update`, users);
     }
 
+    delete(id:number){
+        return this.http.delete(`${this.api}/delete/${id}`);
+    }
+
     forgotPassword(email: String){
         return this.http.post(`${this.api}/password/forgot`, email);
     }

@@ -54,6 +54,31 @@ public class User extends Audit implements Serializable, UserDetails {
 
     private Integer activatedBy;
 
+    @Column(name = "retired",  nullable = false , columnDefinition = "boolean default false")
+    private boolean retired = false;
+
+    public Boolean setRetired(boolean retired) {
+        return this.retired = retired;
+    }
+
+    public Boolean isRetired() {
+        return this.retired;
+    }
+
+    public void setRetired(Boolean retired) {
+        this.retired = retired;
+    }
+
+    public Integer getRetiredBy() {
+        return this.retiredBy;
+    }
+
+    public void setRetiredBy(Integer retiredBy) {
+        this.retiredBy = retiredBy;
+    }
+
+    private Integer retiredBy;
+
     @Column(name = "activated_date")
     private LocalDateTime activatedDate;
 

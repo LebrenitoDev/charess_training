@@ -41,7 +41,65 @@
                                 </div>
 
 
+                                <!-- <ngx-datatable class="material" [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">
+                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
+                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="Name" [flexGrow]="2">
+                                        <ng-template let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="Age" [flexGrow]="2">
+                                        <ng-template let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="Town" [flexGrow]="2">
+                                        <ng-template let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="Country" [flexGrow]="2">
+                                        <ng-template let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                            
+                                </ngx-datatable> -->
 
+                                <ngx-datatable class="material container striped">
+                                    <ngx-datatable-column name="topic" [flexGrow]="2">
+                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                                            {{row.topic.fullname}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="startDate" [flexGrow]="0.5">
+                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
+                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
+                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
+                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                                            {{row.startDate}}
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+                            
+
+                                
 
 
                                 <table mat-table [dataSource]="datasource" matSort >
@@ -82,7 +140,7 @@
                                         <td mat-cell *matCellDef="let row">{{row.endDate}}</td>
                                     </ng-container>
                                     <ng-container matColumnDef="capacity">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Number of attendees'| translate}}</th>
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ber of attendees'| translate}}</th>
                                         <td mat-cell *matCellDef="let row">{{row.participants.length}}/<span style="font-weight: bold">{{row.capacity * row.partners.length}}</span></td>
                                     </ng-container>
                                     <ng-container matColumnDef="network">

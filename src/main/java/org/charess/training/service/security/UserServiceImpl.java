@@ -81,6 +81,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
+    public void deleteUser(Integer id){
+        userRepository.deleteUser(true,id);;
+    }
+
     public User register(User user, boolean encodePassword) {
         if (user.getPassword() == null && user.getId() != null) {
             userRepository.findById(user.getId()).ifPresent(u -> user.setPassword(u.getPassword()));

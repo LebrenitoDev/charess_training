@@ -14,6 +14,7 @@ public interface UserService {
     User register(User user, boolean encodePassword);
     List<User> getUsers();
     void update(List<User> users);
+    void deleteUser(Integer id);
     User getUserById(Integer id);
     User forgotPassword(String email);
 
