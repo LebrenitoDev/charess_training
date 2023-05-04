@@ -29,7 +29,9 @@ export class TrainingPageComponent extends UnsubscribeOnDestroyAdapter implement
         'endDate',
         'capacity',
         'network',
-        'location'
+        'location',
+        'editor',
+        'edited'
     ];
 
     database: TrainingService | null;
@@ -56,6 +58,8 @@ export class TrainingPageComponent extends UnsubscribeOnDestroyAdapter implement
     public load() {
         this.database = new TrainingService(this.http);
         this.datasource = new Source(this.database, this.paginator, this.sort);
+        console.log("*********{data}*********",this.datasource);
+
         this.subs.sink = fromEvent(this.filter.nativeElement, 'keyup').subscribe(
             () => {
                 if (!this.datasource) {

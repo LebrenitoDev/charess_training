@@ -90,6 +90,14 @@
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Training Location'| translate}}</th>
                                         <td mat-cell *matCellDef="let row">{{row.location.name}}</td>
                                     </ng-container>
+                                    <ng-container matColumnDef="editor">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Row editor'| translate}}</th>
+                                        <td mat-cell *matCellDef="let row">{{row.editor}}</td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="edited">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Row edited'| translate}}</th>
+                                        <td mat-cell *matCellDef="let row">{{row.edited}}</td>
+                                    </ng-container>
                                     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                                     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="details(row)" [style.cursor]="'pointer'" matRipple> </tr>
                                 </table>
