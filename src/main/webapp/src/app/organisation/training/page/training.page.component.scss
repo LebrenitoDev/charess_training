@@ -1,7 +1,30 @@
+@mixin puce($color){
+  background-color: $color;
+  height: 14px !important;
+  width: 14px !important;
+  margin-left: 3px;
+}
+
+.flex{
+  display: flex;
+}
+
+.ml{
+  margin-left: 20px !important;
+}
+
+.static-container {
+  max-height: 74.5vh;
+  overflow: auto;
+}
+
+.materialTableHeader {
+  min-width: none !important;
+}
+
 table {
   width: 100%;
-  overflow-y: visible;
-  // max-height: 30vh;
+  overflow-y: hidden;
 }
 
 .mat-column-status {
@@ -107,30 +130,43 @@ table {
   hyphens: auto;
 }
 
+.list-puce{
+  position: absolute;
+  border-radius: 50%;
+  margin-top: 4px !important;
+}
+
 .training_broadcast {
-  background-color: gray;
+  @include puce(gray);
+  margin-top: 14px;
 }
 
 .training_requested {
-  background-color: darkslategray;
+  margin-top: 14px;
+  @include puce(darkslategray);
 }
 
 .training_validated {
-  background-color: greenyellow;
+  margin-top: 14px;
+  @include puce(greenyellow);
 }
 
 .training_rejected {
-  background-color: darkred;
+  margin-top: 14px;
+  @include puce(darkred);
 }
 
 .training_pending {
-  background-color: yellow;
+  margin-top: 14px;
+  @include puce(yellow);
 }
 
 .training_completed {
-  background-color: green;
+  margin-top: 14px;
+  @include puce(green);
 }
 
 .training_uncompleted {
-  background-color: red;
+  margin-top: 14px;
+  @include puce(red);
 }

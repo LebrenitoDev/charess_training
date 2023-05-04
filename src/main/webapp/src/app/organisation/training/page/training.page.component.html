@@ -5,102 +5,41 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="body">
-                            <div class="table-responsive">
-                                <div class="materialTableHeader">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="header-buttons-left ml-0">
-                                                <li class="dropdown"><h2><strong>{{'training.page' | translate}}</strong></h2></li>
-                                                <li class="dropdown m-l-20">
-                                                    <label><i class="material-icons search-icon">search</i></label>
-                                                    <input placeholder="Search" type="text" #filter class="browser-default search-field" aria-label="Search box">
-                                                </li>
-                                            </ul>
-                                            <ul class="header-buttons">
-                                                <li>
-                                                    <button mat-mini-fab color="primary" (click)="add()">
-                                                        <mat-icon class="col-white">add</mat-icon>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
+                            <div class="materialTableHeader">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <ul class="header-buttons-left ml-0">
+                                            <li class="dropdown"><h2><strong>{{'training.page' | translate}}</strong></h2></li>
+                                            <li class="dropdown m-l-20">
+                                                <label><i class="material-icons search-icon">search</i></label>
+                                                <input placeholder="Search" type="text" #filter class="browser-default search-field" aria-label="Search box">
+                                            </li>
+                                        </ul>
+                                        <ul class="header-buttons">
+                                            <li>
+                                                <button mat-mini-fab color="primary" (click)="add()">
+                                                    <mat-icon class="col-white">add</mat-icon>
+                                                </button>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="table-responsive static-container">
+                                
                                 <div>&nbsp;</div>
                                 <div>
                                     <div style="font-weight: bold">{{'Legend' | translate}}:</div>
-                                    <div>
-                                        {{'training_broadcast' | translate}}: <button mat-icon-button class="btn-tbl-edit training_broadcast"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
-                                        {{'training_requested' | translate}}: <button mat-icon-button class="btn-tbl-edit training_requested"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
-                                        {{'training_validated' | translate}}: <button mat-icon-button class="btn-tbl-edit training_validated"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
-                                        {{'training_rejected' | translate}}: <button mat-icon-button class="btn-tbl-edit training_rejected"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
-                                        {{'training_pending' | translate}}: <button mat-icon-button class="btn-tbl-edit training_pending"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
-                                        {{'training_completed' | translate}}: <button mat-icon-button class="btn-tbl-edit training_completed"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
-                                        {{'training_uncompleted' | translate}}: <button mat-icon-button class="btn-tbl-edit training_uncompleted"><mat-icon></mat-icon></button> &nbsp;&nbsp;&nbsp;
+                                    <div class="flex">
+                                        <p >{{'training_broadcast' | translate}} <label  class="training_broadcast list-puce" ></label></p>  &nbsp;&nbsp;&nbsp;
+                                        <p class="ml">{{'training_requested' | translate}}: <label class="training_requested list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                        <p class="ml">{{'training_validated' | translate}}: <label class="training_validated list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                        <p class="ml">{{'training_rejected' | translate}}: <label class=" training_rejected list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                        <p class="ml">{{'training_pending' | translate}}: <label class=" training_pending list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                        <p class="ml">{{'training_completed' | translate}}: <label class="training_completed list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                        <p class="ml">{{'training_uncompleted' | translate}}: <label class="training_uncompleted list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
-
-
-                                <!-- <ngx-datatable class="material" [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">
-                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
-                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="Name" [flexGrow]="2">
-                                        <ng-template let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="Age" [flexGrow]="2">
-                                        <ng-template let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="Town" [flexGrow]="2">
-                                        <ng-template let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="Country" [flexGrow]="2">
-                                        <ng-template let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                            
-                                </ngx-datatable> -->
-
-                                <ngx-datatable class="material container striped">
-                                    <ngx-datatable-column name="topic" [flexGrow]="2">
-                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                                            {{row.topic.fullname}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="startDate" [flexGrow]="0.5">
-                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
-                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
-                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                    <ngx-datatable-column name="#" [flexGrow]="0.5">
-                                        <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                                            {{row.startDate}}
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                </ngx-datatable>
-                            
-
-                                
-
 
                                 <table mat-table [dataSource]="datasource" matSort >
                                     <ng-container matColumnDef="status">
@@ -154,8 +93,8 @@
                                     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                                     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="details(row)" [style.cursor]="'pointer'" matRipple> </tr>
                                 </table>
-                                <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                             </div>
+                            <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                         </div>
                     </div>
                 </div>
