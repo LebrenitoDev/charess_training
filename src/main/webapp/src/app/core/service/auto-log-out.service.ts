@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 
 export class AutoLogOutService {
 
-  private readonly MINUTES_UNITL_AUTO_LOGOUT = 3;
-  private readonly CHECK_INTERVAL = 10000;
+  private readonly MINUTES_UNITL_AUTO_LOGOUT = 1;
+  private readonly CHECK_INTERVAL = 1000;
   private readonly STORE_KEY = 'lastAction';
 
    constructor(private router: Router) {
