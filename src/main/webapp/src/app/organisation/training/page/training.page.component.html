@@ -25,22 +25,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="table-responsive static-container">
-                                
-                                <div>&nbsp;</div>
-                                <div>
-                                    <div style="font-weight: bold">{{'Legend' | translate}}:</div>
-                                    <div class="flex">
-                                        <p >{{'training_broadcast' | translate}} <label  class="training_broadcast list-puce" ></label></p>  &nbsp;&nbsp;&nbsp;
-                                        <p class="ml">{{'training_requested' | translate}}: <label class="training_requested list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
-                                        <p class="ml">{{'training_validated' | translate}}: <label class="training_validated list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
-                                        <p class="ml">{{'training_rejected' | translate}}: <label class=" training_rejected list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
-                                        <p class="ml">{{'training_pending' | translate}}: <label class=" training_pending list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
-                                        <p class="ml">{{'training_completed' | translate}}: <label class="training_completed list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
-                                        <p class="ml">{{'training_uncompleted' | translate}}: <label class="training_uncompleted list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
-                                    </div>
+                            <div>&nbsp;</div>
+                            <div>
+                                <div style="font-weight: bold">{{'Legend' | translate}}:</div>
+                                <div class="flex">
+                                    <p >{{'training_broadcast' | translate}} <label  class="training_broadcast list-puce" ></label></p>  &nbsp;&nbsp;&nbsp;
+                                    <p class="ml">{{'training_requested' | translate}}: <label class="training_requested list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                    <p class="ml">{{'training_validated' | translate}}: <label class="training_validated list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                    <p class="ml">{{'training_rejected' | translate}}: <label class=" training_rejected list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                    <p class="ml">{{'training_pending' | translate}}: <label class=" training_pending list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                    <p class="ml">{{'training_completed' | translate}}: <label class="training_completed list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
+                                    <p class="ml">{{'training_uncompleted' | translate}}: <label class="training_uncompleted list-puce"><mat-icon></mat-icon></label></p> &nbsp;&nbsp;&nbsp;
                                 </div>
-
+                            </div>
+                            <div class="table-responsive static-container">
                                 <table mat-table [dataSource]="datasource" matSort >
                                     <ng-container matColumnDef="status">
                                         <th mat-header-cell *matHeaderCellDef></th>
@@ -79,7 +77,7 @@
                                         <td mat-cell *matCellDef="let row">{{row.endDate}}</td>
                                     </ng-container>
                                     <ng-container matColumnDef="capacity">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'ber of attendees'| translate}}</th>
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Number of attendees'| translate}}</th>
                                         <td mat-cell *matCellDef="let row">{{row.participants.length}}/<span style="font-weight: bold">{{row.capacity * row.partners.length}}</span></td>
                                     </ng-container>
                                     <ng-container matColumnDef="network">
@@ -90,9 +88,9 @@
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Training Location'| translate}}</th>
                                         <td mat-cell *matCellDef="let row">{{row.location.name}}</td>
                                     </ng-container>
-                                    <ng-container matColumnDef="editor">
+                                    <ng-container matColumnDef="editorName">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Row editor'| translate}}</th>
-                                        <td mat-cell *matCellDef="let row">{{row.editor}}</td>
+                                        <td mat-cell *matCellDef="let row">{{row.editorName}}</td>
                                     </ng-container>
                                     <ng-container matColumnDef="edited">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Row edited'| translate}}</th>

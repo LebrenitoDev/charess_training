@@ -82,7 +82,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public void deleteUser(Integer id){
-        userRepository.deleteUser(true,id);;
+        if(id >0)
+            userRepository.deleteUser(true, id, getCurrentUser().getId());
     }
 
     public User register(User user, boolean encodePassword) {

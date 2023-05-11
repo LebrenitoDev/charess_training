@@ -5,6 +5,10 @@
   margin-left: 3px;
 }
 
+.puce_seection{
+  z-index: 1;
+}
+
 .flex{
   display: flex;
 }
@@ -14,7 +18,7 @@
 }
 
 .static-container {
-  max-height: 74.5vh;
+  max-height: 67.5vh;
   overflow: auto;
 }
 

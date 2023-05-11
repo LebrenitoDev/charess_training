@@ -72,6 +72,7 @@ public class Training extends Audit {
     @Column(name = "status_date")
     private LocalDateTime statusDatetime = LocalDateTime.now();
 
+
     public List<Participant> getParticipants() {
         return participants;
     }

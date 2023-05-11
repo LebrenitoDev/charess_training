@@ -1,14 +1,12 @@
 package org.charess.training.domain.security;
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-import java.io.Serializable;
+
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public class Audit extends ID implements Serializable {
+public class Audit extends ID{
 
     @Column(name = "created")
     private LocalDateTime created;
@@ -22,6 +20,9 @@ public class Audit extends ID implements Serializable {
     @Column(name = "editor")
     private Integer editor;
 
+    @Column(name = "editor_name", length = 255)
+    private String editorName;
+
     public Audit() {
     }
 
@@ -30,18 +31,21 @@ public class Audit extends ID implements Serializable {
         this.creator = audit.creator;
         this.edited = audit.edited;
         this.editor = audit.editor;
+        this.editorName = audit.editorName;
     }
 
-    public Audit(LocalDateTime created, Integer creator, LocalDateTime edited, Integer editor) {
+    public Audit(LocalDateTime created, Integer creator, LocalDateTime edited, Integer editor, String editorName) {
         this.created = created;
         this.creator = creator;
         this.edited = edited;
         this.editor = editor;
+        this.editorName = editorName;
     }
 
-    public Audit(LocalDateTime created, Integer creator) {
+    public Audit(LocalDateTime created, Integer creator, String editorName) {
         this.created = created;
         this.creator = creator;
+        this.editorName = editorName;
     }
 
     public LocalDateTime getCreated() {
@@ -74,5 +78,14 @@ public class Audit extends ID implements Serializable {
 
     public void setEditor(Integer editor) {
         this.editor = editor;
+    }
+
+
+    public String getEditorName() {
+        return this.editorName;
+    }
+
+    public void setEditorName(String editorName) {
+        this.editorName = editorName;
     }
 }

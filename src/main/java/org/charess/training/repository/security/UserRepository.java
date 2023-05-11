@@ -17,6 +17,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     User findByPersonEmail(String email);
 
     @Modifying
-    @Query("update User u set u.retired = ?1 where u.id =?2")
-    void deleteUser(boolean b,Integer id );
+    @Query("update User u set u.retired = ?1 , u.retiredBy =?3 where u.id =?2")
+    void deleteUser(boolean b,Integer id, Integer currentUser);
 }

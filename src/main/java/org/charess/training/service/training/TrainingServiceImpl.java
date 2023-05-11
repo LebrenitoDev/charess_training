@@ -115,13 +115,13 @@ public class TrainingServiceImpl implements TrainingService {
     public Training broadcast(Training training){
         Audit audit = training;
         userService.inject(audit);
-
+        System.out.println(training);
         if(training == null)
             return null;
 
         trainingRepository.save(training);
-        if(training.getStartDate().isAfter(LocalDate.now()))
-            mail(training);
+        // if(training.getStartDate().isAfter(LocalDate.now()))
+        //     mail(training);
 
         return training;
     }
@@ -160,8 +160,7 @@ public class TrainingServiceImpl implements TrainingService {
     }
 
     public Training updateParticipants(Training training){
-        Audit audit = new Audit(LocalDateTime.now(), userService.getCurrentUser().getId());
-
+        String editorName = userService.getUserById(userService.getCurrentUser().getId()).getPerson().getFullname();
         Training t = trainingRepository.findById(training.getId()).get();
 
         participantRepository.deleteAllByTraining(t);
@@ -169,6 +168,16 @@ public class TrainingServiceImpl implements TrainingService {
 
         List<Participant> participants = new ArrayList<>();
         for(Participant p: training.getParticipants()){
+            Audit audit = p;
+            if(audit.getId()!=null){
+                audit.setEdited(LocalDateTime.now());
+                audit.setEditor(userService.getCurrentUser().getId());
+                audit.setEditorName(editorName);
+
+            }else{
+                audit.setCreated(LocalDateTime.now());
+                audit.setCreator(userService.getCurrentUser().getId());
+            }
             Person person = personRepository.save(p.getPerson());
             p.setPerson(person);
             p.setTraining(training);
@@ -177,10 +186,14 @@ public class TrainingServiceImpl implements TrainingService {
         }
 
         participantRepository.saveAll(participants);
+        t.setEditor(userService.getCurrentUser().getId());
+        t.setEditorName(editorName);
+        t.setEdited(LocalDateTime.now());
 
         if(Status.TRAINING_BROADCAST.toString().equals(t.getStatus())){
             t.setStatus(Status.TRAINING_PENDING.toString());
             trainingRepository.save(t);
+
         }
         return training;
     }

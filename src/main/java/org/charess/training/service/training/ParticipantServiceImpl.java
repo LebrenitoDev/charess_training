@@ -43,7 +43,8 @@ public class ParticipantServiceImpl implements ParticipantService {
             return "";
 
         Place partner = partnerTrainingParticipants.getPartner();
-        Audit audit = new Audit(LocalDateTime.now(), userService.getCurrentUser().getId());
+        String editorName = userService.getUserById(userService.getCurrentUser().getId()).getPerson().getFullname();
+        Audit audit = new Audit(LocalDateTime.now(), userService.getCurrentUser().getId(),editorName);
         List<Participant> participants = participantRepository.findByTrainingAndPartner(training, partner);
 
         if (training == null || partner == null)

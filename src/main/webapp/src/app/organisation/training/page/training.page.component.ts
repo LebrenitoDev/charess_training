@@ -30,7 +30,7 @@ export class TrainingPageComponent extends UnsubscribeOnDestroyAdapter implement
         'capacity',
         'network',
         'location',
-        'editor',
+        'editorName',
         'edited'
     ];
 

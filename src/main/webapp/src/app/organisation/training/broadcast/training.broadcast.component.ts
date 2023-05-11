@@ -144,6 +144,7 @@ export class TrainingBroadcastComponent implements OnInit {
         ob.location = this.location.value;
         ob.categories = this.categories.value;
         ob.partners = this.partners.value;
+        console.log("****************",ob);
 
         this.service.broadcast(ob).subscribe(
             (res) => this.success(res),
