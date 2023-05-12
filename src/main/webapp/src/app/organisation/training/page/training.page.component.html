@@ -50,7 +50,7 @@
                                             </span>
                                         </td>
                                     </ng-container>
-                                    <ng-container>
+                                    <!-- <ng-container>
                                         <th mat-header-cell *matHeaderCellDef [ngClass]="'tbl-col-width-per-6'">
                                             <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
                                                           [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
@@ -62,7 +62,7 @@
                                                           [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'">
                                             </mat-checkbox>
                                         </td>
-                                    </ng-container>
+                                    </ng-container> -->
 
                                     <ng-container matColumnDef="topic">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Theme'| translate}}</th>
@@ -94,7 +94,7 @@
                                     </ng-container>
                                     <ng-container matColumnDef="edited">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Row edited'| translate}}</th>
-                                        <td mat-cell *matCellDef="let row">{{row.edited}}</td>
+                                        <td mat-cell *matCellDef="let row">{{row.edited | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
                                     </ng-container>
                                     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                                     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="details(row)" [style.cursor]="'pointer'" matRipple> </tr>
