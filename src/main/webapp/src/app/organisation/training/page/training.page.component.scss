@@ -9,6 +9,11 @@
   z-index: 1;
 }
 
+.participant_Form{
+  max-height: 10px;
+  overflow: auto;
+}
+
 .flex{
   display: flex;
 }

@@ -67,8 +67,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <fieldset>
-                                <div class="row">
+                            <fieldset class="">
+                                <div class="row participant_Form">
                                     <legend>{{"Participants" | translate}}</legend>
                                     <ng-container formArrayName="participants" *ngFor="let participant of participants.controls; index as i">
                                         <ng-container [formGroupName]="i">
