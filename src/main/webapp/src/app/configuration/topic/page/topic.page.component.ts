@@ -11,7 +11,8 @@ import {Topic} from "../../../core/models/training/topic";
 
 @Component({
     selector: 'app-page',
-    templateUrl: './topic.page.component.html'
+    templateUrl: './topic.page.component.html',
+    styleUrls: ['./topic.page.component.scss']
 })
 
 export class TopicPageComponent extends UnsubscribeOnDestroyAdapter implements OnInit {

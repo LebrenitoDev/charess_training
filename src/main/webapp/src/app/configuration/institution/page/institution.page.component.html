@@ -5,65 +5,78 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="body">
-                            <div class="table-responsive">
-                                <div class="materialTableHeader">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="header-buttons-left ml-0">
-                                                <li class="dropdown"><h2><strong>{{'training.configuration.list.facility' | translate}}</strong></h2></li>
-                                                <li class="dropdown m-l-20">
-                                                    <label><i class="material-icons search-icon">search</i></label>
-                                                    <input placeholder="Search" type="text" #filter class="browser-default search-field" aria-label="Search box">
-                                                </li>
-                                            </ul>
-                                            <ul class="header-buttons">
-                                                <li>
-                                                    <button mat-mini-fab color="primary" (click)="add()">
-                                                        <mat-icon class="col-white">add</mat-icon>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
+                            <div class="materialTableHeader">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <ul class="header-buttons-left ml-0">
+                                            <li class="dropdown">
+                                                <h2><strong>{{'training.configuration.list.facility' |
+                                                        translate}}</strong></h2>
+                                            </li>
+                                            <li class="dropdown m-l-20">
+                                                <label><i class="material-icons search-icon">search</i></label>
+                                                <input placeholder="Search" type="text" #filter
+                                                    class="browser-default search-field" aria-label="Search box">
+                                            </li>
+                                        </ul>
+                                        <ul class="header-buttons">
+                                            <li>
+                                                <button mat-mini-fab color="primary" (click)="add()">
+                                                    <mat-icon class="col-white">add</mat-icon>
+                                                </button>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="table-responsive container_institution">
                                 <mat-table #table [dataSource]="datasource" matSort class="mat-cell">
                                     <ng-container>
                                         <mat-header-cell *matHeaderCellDef [ngClass]="'tbl-col-width-per-6'">
-                                            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
-                                                          [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+                                            <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                [checked]="selection.hasValue() && isAllSelected()"
+                                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                                [ngClass]="'tbl-checkbox'">
                                             </mat-checkbox>
                                         </mat-header-cell>
                                         <mat-cell *matCellDef="let row" [ngClass]="'tbl-col-width-per-6'">
-                                            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
-                                                          [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'">
+                                            <mat-checkbox (click)="$event.stopPropagation()"
+                                                (change)="$event ? selection.toggle(row) : null"
+                                                [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'">
                                             </mat-checkbox>
                                         </mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="name">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Name'| translate}}</mat-header-cell>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Name'|
+                                            translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row">{{row.fullname}}</mat-cell>
                                     </ng-container>
                                     <ng-container matColumnDef="address">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Adress'| translate}}</mat-header-cell>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Adress'|
+                                            translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row">{{row.address}}</mat-cell>
                                     </ng-container>
                                     <ng-container matColumnDef="managers">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Manager'| translate}}</mat-header-cell>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Manager'|
+                                            translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row">{{displayManagers(row.managers)}}</mat-cell>
                                     </ng-container>
                                     <!--<ng-container matColumnDef="parent">-->
-                                        <!--<mat-header-cell *matHeaderCellDef mat-sort-header>{{'Parent'| translate}}</mat-header-cell>-->
-                                        <!--<mat-cell *matCellDef="let row">{{row?.parent?.name}}</mat-cell>-->
+                                    <!--<mat-header-cell *matHeaderCellDef mat-sort-header>{{'Parent'| translate}}</mat-header-cell>-->
+                                    <!--<mat-cell *matCellDef="let row">{{row?.parent?.name}}</mat-cell>-->
                                     <!--</ng-container>-->
                                     <ng-container matColumnDef="actions">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Action'| translate}}</mat-header-cell>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Action'|
+                                            translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row">
                                             <span>
-                                                <button mat-icon-button color="accent" class="btn-tbl-edit" (click)="edit(row)">
+                                                <button mat-icon-button color="accent" class="btn-tbl-edit"
+                                                    (click)="edit(row)">
                                                     <mat-icon aria-label="Edit" class="col-white">edit</mat-icon>
                                                 </button>
-                                                <button mat-icon-button color="accent" class="btn-tbl-delete" (click)="delete(row)">
+                                                <button mat-icon-button color="accent" class="btn-tbl-delete"
+                                                    (click)="delete(row)">
                                                     <mat-icon aria-label="Delete" class="col-white">delete</mat-icon>
                                                 </button>
                                             </span>
@@ -71,9 +84,11 @@
                                     </ng-container>
 
                                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                                    <mat-row *matRowDef="let row; columns: displayedColumns;" [style.cursor]="'pointer'" matRipple> </mat-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;" [style.cursor]="'pointer'"
+                                        matRipple> </mat-row>
                                 </mat-table>
-                                <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                                <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0"
+                                    [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                             </div>
                         </div>
                     </div>

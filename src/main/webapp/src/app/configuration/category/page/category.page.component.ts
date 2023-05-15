@@ -11,7 +11,8 @@ import {Category} from "../../../core/models/security/category";
 
 @Component({
     selector: 'app-page',
-    templateUrl: './category.page.component.html'
+    templateUrl: './category.page.component.html',
+    styleUrls: ['./category.page.component.scss']
 })
 
 export class CategoryPageComponent extends UnsubscribeOnDestroyAdapter implements OnInit {

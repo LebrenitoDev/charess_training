@@ -22,23 +22,26 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <ngx-datatable #table class="material" [rows]="data" [sortType]="'multi'" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
-                                    <ngx-datatable-column name="{{'Name' | translate}}" sortable="true" prop="name" [width]="560">
-                                        <ng-template let-row="data" let-value="value" let-i="index" ngx-datatable-cell-template>{{value}}</ng-template></ngx-datatable-column>
-
-                                    <ngx-datatable-column name="Actions" sortable="false" [maxWidth]="105">
-                                        <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                                         <span>
-                                            <button mat-icon-button color="accent" class="btn-tbl-edit" (click)="edit(row)">
-                                                <mat-icon aria-label="Edit" class="col-white">edit</mat-icon>
-                                            </button>
-                                            <button mat-icon-button color="accent" class="btn-tbl-delete" (click)="delete(row)">
-                                                <mat-icon aria-label="Delete" class="col-white">delete</mat-icon>
-                                            </button>
-                                        </span>
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                </ngx-datatable>
+                                
+                                <div class="table-responsive container-category">
+                                    <ngx-datatable #table class="material" [rows]="data" [sortType]="'multi'" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
+                                        <ngx-datatable-column name="{{'Name' | translate}}" sortable="true" prop="name" [width]="560">
+                                            <ng-template let-row="data" let-value="value" let-i="index" ngx-datatable-cell-template>{{value}}</ng-template></ngx-datatable-column>
+    
+                                        <ngx-datatable-column name="Actions" sortable="false" [maxWidth]="105">
+                                            <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                                             <span>
+                                                <button mat-icon-button color="accent" class="btn-tbl-edit" (click)="edit(row)">
+                                                    <mat-icon aria-label="Edit" class="col-white">edit</mat-icon>
+                                                </button>
+                                                <button mat-icon-button color="accent" class="btn-tbl-delete" (click)="delete(row)">
+                                                    <mat-icon aria-label="Delete" class="col-white">delete</mat-icon>
+                                                </button>
+                                            </span>
+                                            </ng-template>
+                                        </ngx-datatable-column>
+                                    </ngx-datatable>
+                                </div>
                             </div>
                         </div>
                     </div>

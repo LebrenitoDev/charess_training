@@ -5,136 +5,170 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="body">
-                            <div class="table-responsive">
-                                <div class="materialTableHeader">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul class="header-buttons-left ml-0">
-                                                <li class="dropdown"><h2><strong>{{'training.configuration.list.account' | translate}}</strong></h2></li>
-                                                <li class="dropdown m-l-20">
-                                                    <label><i class="material-icons search-icon">search</i></label>
-                                                    <input placeholder="Search" type="text" #filter class="browser-default search-field" aria-label="Search box">
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-4">
-                                            <ul class="header-buttons">
-                                                <!--<li>-->
-                                                    <!--<div class="icon-button-demo" [hidden]=!selection.hasValue()>-->
-                                                        <!--<button mat-mini-fab (click)="update('password', 'password')" matTooltip="Réinitialiser mot de passe">-->
-                                                            <!--<mat-icon class="col-white">restart_alt</mat-icon>-->
-                                                        <!--</button>-->
-                                                    <!--</div>-->
-                                                <!--</li>-->
-                                                <li ngbDropdown [hidden]=!selection.hasValue()>
-                                                    <div class="icon-button-demo nav-notification-icons pt-0" ngbDropdownToggle>
-                                                        <button mat-mini-fab color="white" matTooltip="Profile d'utilisateur">
-                                                            <mat-icon>format_list_bulleted</mat-icon>
-                                                        </button>
-                                                    </div>
-                                                    <div ngbDropdownMenu class="downlist">
-                                                        <ul class="menu">
-                                                            <li class="body"><a href="#" *ngFor="let p of profiles" (click)="update(p, 'profile')">{{p.name}}</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon-button-demo" [hidden]=!selection.hasValue()>
-                                                        <button mat-mini-fab color="primary" (click)="update('USER_ACTIVE', 'status')" matTooltip="Activer">
-                                                            <mat-icon class="col-white">notifications</mat-icon>
-                                                        </button>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon-button-demo" [hidden]=!selection.hasValue()>
-                                                        <button mat-mini-fab color="warn" (click)="update('USER_INACTIVE', 'status')" matTooltip="Désactiver">
-                                                            <mat-icon class="col-white">notifications_off</mat-icon>
-                                                        </button>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon-button-demo" [hidden]="selection.selected.length !== 1">
-                                                        <button mat-mini-fab color="primary" (click)="edit()" matTooltip="Editer">
-                                                            <mat-icon class="col-white">edit</mat-icon>
-                                                        </button>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon-button-demo" [hidden]=selection.hasValue()>
-                                                        <button mat-mini-fab color="primary" (click)="add()" matTooltip="Ajouter">
-                                                            <mat-icon class="col-white">add</mat-icon>
-                                                        </button>
-                                                    </div>
-                                                </li>
+                            <div class="materialTableHeader">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <ul class="header-buttons-left ml-0">
+                                            <li class="dropdown">
+                                                <h2><strong>{{'training.configuration.list.account' |
+                                                        translate}}</strong></h2>
+                                            </li>
+                                            <li class="dropdown m-l-20">
+                                                <label><i class="material-icons search-icon">search</i></label>
+                                                <input placeholder="Search" type="text" #filter
+                                                    class="browser-default search-field" aria-label="Search box">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-4">
+                                        <ul class="header-buttons">
+                                            <!--<li>-->
+                                            <!--<div class="icon-button-demo" [hidden]=!selection.hasValue()>-->
+                                            <!--<button mat-mini-fab (click)="update('password', 'password')" matTooltip="Réinitialiser mot de passe">-->
+                                            <!--<mat-icon class="col-white">restart_alt</mat-icon>-->
+                                            <!--</button>-->
+                                            <!--</div>-->
+                                            <!--</li>-->
+                                            <li ngbDropdown [hidden]=!selection.hasValue()>
+                                                <div class="icon-button-demo nav-notification-icons pt-0"
+                                                    ngbDropdownToggle>
+                                                    <button mat-mini-fab color="white"
+                                                        matTooltip="Profile d'utilisateur">
+                                                        <mat-icon>format_list_bulleted</mat-icon>
+                                                    </button>
+                                                </div>
+                                                <div ngbDropdownMenu class="downlist">
+                                                    <ul class="menu">
+                                                        <li class="body"><a href="#" *ngFor="let p of profiles"
+                                                                (click)="update(p, 'profile')">{{p.name}}</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon-button-demo" [hidden]=!selection.hasValue()>
+                                                    <button mat-mini-fab color="primary"
+                                                        (click)="update('USER_ACTIVE', 'status')" matTooltip="Activer">
+                                                        <mat-icon class="col-white">notifications</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon-button-demo" [hidden]=!selection.hasValue()>
+                                                    <button mat-mini-fab color="warn"
+                                                        (click)="update('USER_INACTIVE', 'status')"
+                                                        matTooltip="Désactiver">
+                                                        <mat-icon class="col-white">notifications_off</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon-button-demo"
+                                                    [hidden]="selection.selected.length !== 1">
+                                                    <button mat-mini-fab color="primary" (click)="edit()"
+                                                        matTooltip="Editer">
+                                                        <mat-icon class="col-white">edit</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon-button-demo" [hidden]=selection.hasValue()>
+                                                    <button mat-mini-fab color="primary" (click)="add()"
+                                                        matTooltip="Ajouter">
+                                                        <mat-icon class="col-white">add</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </li>
 
-                                            </ul>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="table-responsive container-account">
                                 <mat-table #table [dataSource]="datasource" matSort class="mat-cell">
                                     <ng-container matColumnDef="select">
                                         <mat-header-cell *matHeaderCellDef [ngClass]="'tbl-col-width-per-6'">
-                                            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
-                                                          [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+                                            <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                [checked]="selection.hasValue() && isAllSelected()"
+                                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                                [ngClass]="'tbl-checkbox'">
                                             </mat-checkbox>
                                         </mat-header-cell>
                                         <mat-cell *matCellDef="let row" [ngClass]="'tbl-col-width-per-6'">
-                                            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
-                                                          [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'">
+                                            <mat-checkbox (click)="$event.stopPropagation()"
+                                                (change)="$event ? selection.toggle(row) : null"
+                                                [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'">
                                             </mat-checkbox>
                                         </mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="username">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Username'| translate}}</mat-header-cell>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Username'|
+                                            translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row">{{row.username}}</mat-cell>
                                     </ng-container>
 
-                                    <ng-container matColumnDef="fullname" >
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'user.fullname'|translate}}</mat-header-cell>
-                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">{{row.person.fullname}}</mat-cell>
+                                    <ng-container matColumnDef="fullname">
+                                        <mat-header-cell *matHeaderCellDef
+                                            mat-sort-header>{{'user.fullname'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row"
+                                            (contextmenu)="onContextMenu($event, row)">{{row.person.fullname}}</mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="profile">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Profile'|translate}}</mat-header-cell>
-                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.profile?.name}}</mat-cell>
+                                        <mat-header-cell *matHeaderCellDef
+                                            mat-sort-header>{{'Profile'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                                            {{row.profile?.name}}</mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="institution">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Place of work'|translate}}</mat-header-cell>
-                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.institution?.name}}</mat-cell>
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Place of
+                                            work'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                                            {{row.institution?.name}}</mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="status">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Status'|translate}}</mat-header-cell>
-                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{chg(row.status)}}</mat-cell>
+                                        <mat-header-cell *matHeaderCellDef
+                                            mat-sort-header>{{'Status'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                                            {{chg(row.status)}}</mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="email">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Email'|translate}}</mat-header-cell>
-                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.person.email}}</mat-cell>
+                                        <mat-header-cell *matHeaderCellDef
+                                            mat-sort-header>{{'Email'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                                            {{row.person.email}}</mat-cell>
                                     </ng-container>
 
                                     <ng-container matColumnDef="locale">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Locale'|translate}}</mat-header-cell>
-                                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">{{row.locale=='en'?'Anglais':(row.locale=='fr'?'Fran&ccedil;ais':'Créole Haïtien')}}</mat-cell>
+                                        <mat-header-cell *matHeaderCellDef
+                                            mat-sort-header>{{'Locale'|translate}}</mat-header-cell>
+                                        <mat-cell *matCellDef="let row"
+                                            (contextmenu)="onContextMenu($event, row)">{{row.locale=='en'?'Anglais':(row.locale=='fr'?'Fran&ccedil;ais':'Créole
+                                            Haïtien')}}</mat-cell>
                                     </ng-container>
-                                    
+
                                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                                    <mat-row *matRowDef="let row; columns: displayedColumns;" [style.cursor]="'pointer'" matRipple> </mat-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;" [style.cursor]="'pointer'"
+                                        matRipple> </mat-row>
 
                                     <ng-container matColumnDef="Action">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Actions'|translate}}</mat-header-cell>
+                                        <mat-header-cell *matHeaderCellDef
+                                            mat-sort-header>{{'Actions'|translate}}</mat-header-cell>
                                         <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
                                             <span>
-                                                <button mat-icon-button color="accent" class="btn-tbl-delete" (click)="delete(row)">
+                                                <button mat-icon-button color="accent" class="btn-tbl-delete"
+                                                    (click)="delete(row)">
                                                     <mat-icon aria-label="Delete" class="col-white">delete</mat-icon>
                                                 </button>
                                             </span>
                                         </mat-cell>
                                     </ng-container>
                                 </mat-table>
-                                <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                                <mat-paginator #paginator [length]="datasource.filteredData.length" [pageIndex]="0"
+                                    [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                             </div>
                         </div>
                     </div>

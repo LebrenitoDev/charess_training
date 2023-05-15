@@ -29,8 +29,6 @@ export class TrainingDetailsComponent implements OnInit {
     data: Array<any>;
     excelData: any;
 
-    // loading = false;
-
 
     constructor(private router: Router, private fb: FormBuilder, private service: TrainingService, private snack: MatSnackBar, private placeService: InstitutionService) {
         const state = this.router.getCurrentNavigation().extras.state;
@@ -56,7 +54,6 @@ export class TrainingDetailsComponent implements OnInit {
     }
 
     get participants(): FormArray {
-        // console.log("*************",this.fg.get('participants'));
         return this.fg.get('participants') as FormArray;
     }
 
@@ -82,39 +79,39 @@ export class TrainingDetailsComponent implements OnInit {
         });
     }
 
-    readExcel(event):void {
-        const file = event.target.files[0];
-        // if (file.length) {
-            let fileReader = new FileReader();
-            console.log("****{file}****", file)
-            fileReader.readAsBinaryString(file);
-            fileReader.onload = (e) => {
-                var workbook = XLSX.read(fileReader.result, { type: 'binary' });
-                var sheet = workbook.SheetNames;
-                if(sheet.length) {
-                    this.data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet[0]])
-                this.data.map(res => {
-                    console.log("****{Data}****", res)
-                    this.excelData = {
-                        id: null,
-                        partner: res?.partner,
-                        logistic: res?.logement,
-                        transport: res?.transport,
-                        person: {
-                            id: null,
-                            identifierType: res?.identifier_type,
-                            identifier: res?.identifier,
-                            firstName: res?.prenom,
-                            lastName: res?.nom,
-                            phone: res?.tel,
-                            email: res?.email,
-                        }
-                    }
-                })
-                }
-            }
-        // }
-    }
+    // readExcel(event):void {
+    //     const file = event.target.files[0];
+    //     // if (file.length) {
+    //         let fileReader = new FileReader();
+    //         console.log("****{file}****", file)
+    //         fileReader.readAsBinaryString(file);
+    //         fileReader.onload = (e) => {
+    //             var workbook = XLSX.read(fileReader.result, { type: 'binary' });
+    //             var sheet = workbook.SheetNames;
+    //             if(sheet.length) {
+    //                 this.data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet[0]])
+    //             this.data.map(res => {
+    //                 console.log("****{Data}****", res)
+    //                 this.excelData = {
+    //                     id: null,
+    //                     partner: res?.partner,
+    //                     logistic: res?.logement,
+    //                     transport: res?.transport,
+    //                     person: {
+    //                         id: null,
+    //                         identifierType: res?.identifier_type,
+    //                         identifier: res?.identifier,
+    //                         firstName: res?.prenom,
+    //                         lastName: res?.nom,
+    //                         phone: res?.tel,
+    //                         email: res?.email,
+    //                     }
+    //                 }
+    //             })
+    //             }
+    //         }
+    //     // }
+    // }
 
     private toast(color, text) {
         this.snack.open(text, '', {
@@ -148,14 +145,6 @@ export class TrainingDetailsComponent implements OnInit {
     }
 
     submit(ob: any): void {
-        // console.log("____{exceldata}__________", this.excelData)
-        // if(this.excelData){
-        //     this.excelData = this.training.id;
-        //     this.service.updateParticipants(this.excelData).subscribe(
-        //     (res) => this.success(),
-        //     (err) => this.error(err)
-        // );
-        // }
         ob.id = this.training.id;
         ob.participants = this.participants.getRawValue();
         this.service.updateParticipants(ob).subscribe(

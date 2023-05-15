@@ -8,10 +8,15 @@
                             <div class="col-sm-12">
                                 <div class="ngxTableHeader">
                                     <ul class="header-buttons-left ms-0 mb-0">
-                                        <li class="dropdown"><h2><strong>{{'training.configuration.list.topic' | translate}}</strong></h2></li>
+                                        <li class="dropdown">
+                                            <h2><strong>{{'training.configuration.list.topic' | translate}}</strong>
+                                            </h2>
+                                        </li>
                                         <li class="dropdown m-l-20">
                                             <label><i class="material-icons search-icon">search</i></label>
-                                            <input placeholder="{{'Search' | translate}}" type="text" class="browser-default search-field" (keyup)='filterDatatable($event)' aria-label="Search box">
+                                            <input placeholder="{{'Search' | translate}}" type="text"
+                                                class="browser-default search-field" (keyup)='filterDatatable($event)'
+                                                aria-label="Search box">
                                         </li>
                                     </ul>
                                     <ul class="header-buttons">
@@ -22,25 +27,37 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <ngx-datatable #table class="material" [rows]="data" [sortType]="'multi'" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
-                                    <ngx-datatable-column name="{{'Title' | translate}}" sortable="true" prop="title" [width]="280">
-                                        <ng-template let-row="data" let-value="value" let-i="index" ngx-datatable-cell-template>{{value}}</ng-template></ngx-datatable-column>
-                                    <ngx-datatable-column name="{{'Theme' | translate}}" sortable="true" prop="theme" [width]="280">
-                                        <ng-template let-row="data" let-value="value" let-i="index" ngx-datatable-cell-template>{{value?.title}}</ng-template></ngx-datatable-column>
+                                <div class="table-responsive container_topic">
+                                    <ngx-datatable #table class="material" [rows]="data" [sortType]="'multi'"
+                                        [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                                        [rowHeight]="'auto'" [limit]="10">
+                                        <ngx-datatable-column name="{{'Title' | translate}}" sortable="true"
+                                            prop="title" [width]="280">
+                                            <ng-template let-row="data" let-value="value" let-i="index"
+                                                ngx-datatable-cell-template>{{value}}</ng-template></ngx-datatable-column>
+                                        <ngx-datatable-column name="{{'Theme' | translate}}" sortable="true"
+                                            prop="theme" [width]="280">
+                                            <ng-template let-row="data" let-value="value" let-i="index"
+                                                ngx-datatable-cell-template>{{value?.title}}</ng-template></ngx-datatable-column>
 
-                                    <ngx-datatable-column name="Actions" sortable="false" [maxWidth]="105">
-                                        <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                                         <span>
-                                            <button mat-icon-button color="accent" class="btn-tbl-edit" (click)="edit(row)">
-                                                <mat-icon aria-label="Edit" class="col-white">edit</mat-icon>
-                                            </button>
-                                            <button mat-icon-button color="accent" class="btn-tbl-delete" (click)="delete(row)">
-                                                <mat-icon aria-label="Delete" class="col-white">delete</mat-icon>
-                                            </button>
-                                        </span>
-                                        </ng-template>
-                                    </ngx-datatable-column>
-                                </ngx-datatable>
+                                        <ngx-datatable-column name="Actions" sortable="false" [maxWidth]="105">
+                                            <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex"
+                                                ngx-datatable-cell-template>
+                                                <span>
+                                                    <button mat-icon-button color="accent" class="btn-tbl-edit"
+                                                        (click)="edit(row)">
+                                                        <mat-icon aria-label="Edit" class="col-white">edit</mat-icon>
+                                                    </button>
+                                                    <button mat-icon-button color="accent" class="btn-tbl-delete"
+                                                        (click)="delete(row)">
+                                                        <mat-icon aria-label="Delete"
+                                                            class="col-white">delete</mat-icon>
+                                                    </button>
+                                                </span>
+                                            </ng-template>
+                                        </ngx-datatable-column>
+                                    </ngx-datatable>
+                                </div>
                             </div>
                         </div>
                     </div>

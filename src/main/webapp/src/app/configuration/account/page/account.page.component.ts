@@ -18,7 +18,8 @@ import { DeleteComponent } from '../../delete/delete.confirm';
 
 @Component({
     selector: 'app-page',
-    templateUrl: './account.page.component.html'
+    templateUrl: './account.page.component.html',
+    styleUrls: ['./account.page.component.scss']
 })
 
 export class AccountPageComponent extends UnsubscribeOnDestroyAdapter implements OnInit {
