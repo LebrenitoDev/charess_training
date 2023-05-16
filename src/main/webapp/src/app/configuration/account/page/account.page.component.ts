@@ -126,7 +126,10 @@ export class AccountPageComponent extends UnsubscribeOnDestroyAdapter implements
         this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
             if (result === 1) {
                 this.database.delete(row.id).subscribe(
-                    res => this.success(),
+                    res => {
+                        this.success()
+                        this.load();
+                    },
                     (err: HttpErrorResponse)=>this.error(err)
                 );
                 this.set();
